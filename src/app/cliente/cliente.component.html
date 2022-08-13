@@ -1,0 +1,35 @@
+<div class="container-fluid">
+    <div class="form-group">
+        <label class="col-sm-2 col-form-label">Cliente:</label>
+        <input class="form-control" type="text" [(ngModel)] = "cliente.nome" />
+
+        <label class="col-sm-2 col-form-label">Idade:</label>
+        <input class="form-control" type="text"  [(ngModel)] = "cliente.idade"/>      
+      
+        <br />
+        <button type="button" class="btn btn-success" (click) = "addCliente()" > Novo </button>
+    </div>
+<hr />
+<div class="tabela">
+    <table class="table table-hover">
+        <tr>
+            <th scope="col">Nome</th>
+            <th scope="col">Idade</th>
+       
+           
+        </tr>
+        <tbody>
+            <tr 
+            class="table-default"
+            [id] = " ' lista-' + item.nome "
+            
+            [ngClass] = "{'maior':item.idade >= 18, 'menor': item.idade < 18, 'melhor': item.idade >=65}"       
+            *ngFor="let item of clientes">
+           <td>{{item.nome | lowercase}}</td>  
+           <td>{{item.idade}}</td>
+      
+        </tbody>
+    </table>
+
+</div>
+</div>
